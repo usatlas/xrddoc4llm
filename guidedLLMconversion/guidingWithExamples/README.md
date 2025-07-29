@@ -1,5 +1,4 @@
-# Guiding with examples
-
+# guidingWithExamples
 This contains conversions into md format using examples of a manually edited conversion for LLMs to base their product off of in attempt to guide LLMs to produce what is desired.
 
 ## Sections
@@ -10,4 +9,4 @@ This contains conversions into md format using examples of a manually edited con
     - [sec3.4-revised.md](mds/sec3.4-revised.md) is the mannually revised version of the original and used as the example for the LLMs to follow.
     - *usingExample* contains the MarkDown results from the respective LLMs using an example to guide them.
     - *withoutExample* contains the MarkDown results from the respective LLMs without using the examples to guide them. 
-- [guideUsingExamplesNotes.pdf](guideUsingExamplesNotes.pdf) contains notes taken throughout the process of converting, including the prompt used and the main focuses when manually editing the example. 
+- [extraInformation.md](extraInformation.md) contains notes taken throughout the process of converting, including the prompt used and the main focuses when manually editing the example and other notable pieces of information.

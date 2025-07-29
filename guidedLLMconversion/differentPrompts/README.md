@@ -1,5 +1,4 @@
-# Different Prompts
-
+# differentPrompts
 Hosts results of using different LLMs (commercial and local) and different prompts to convert HTML into MarkDown format. 
 
 ## Sections
