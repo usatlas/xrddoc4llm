@@ -1,0 +1,100 @@
+<div class="WordSection9">
+
+<h2><a name="_Toc152596835"></a><a name="_tls_(required_for"></a>3.4<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>tls
+<span style="font-size:12.0pt;font-weight:normal">(<i>required</i> <i>for</i> </span><span style="font-size:12.0pt">TLS</span><span style="font-size:12.0pt;font-weight:
+normal">)</span></h2>
+
+<p class="MsoNormal"><span class="StylePalatino">&nbsp;</span></p>
+
+<div style="border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt">
+
+<p class="MsoPlainText" style="border:none;padding:0in">&nbsp;</p>
+
+<p class="MsoPlainText" style="text-indent:22.5pt;border:none;padding:0in"><b><span style="font-size:12.0pt">xrd.tls</span></b><span style="font-size:12.0pt"> <i>cpath</i>
+[ <i>kpath</i> ] [ <i>options</i> ]</span></p>
+
+<p class="MsoPlainText" style="text-indent:22.5pt;border:none;padding:0in">&nbsp;</p>
+
+<p class="MsoPlainText" style="text-indent:22.5pt;border:none;padding:0in"><i><span style="font-size:12.0pt">options</span></i><span style="font-size:12.0pt">: [[<b>no</b>]<b>detail</b>]
+[<b>hsto</b> <i>to</i>{<b>h</b>|<b>m</b>|<b>s</b>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span></p>
+
+<p class="MsoPlainText" style="border:none;padding:0in">&nbsp;</p>
+
+</div>
+
+<p class="MsoNormal"><span class="StylePalatinoBold">&nbsp;</span></p>
+
+<p class="MsoNormal"><span class="StylePalatinoBold">Function</span></p>
+
+<p class="MsoBodyTextIndent">Configure transport layer security (<b>TLS</b>).</p>
+
+<p class="MsoNormal"><span class="StylePalatino">&nbsp;</span></p>
+
+<p class="MsoNormal"><span class="StylePalatinoBold">Parameters</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">cpath&nbsp;&nbsp; </span><span style="font-family:&quot;Palatino Linotype&quot;,&quot;serif&quot;">Specifies
+the absolute path to the <b>x509</b> certificate file to use for <b>TLS</b>. The
+certificate must be in <b>PEM</b> format. The file may only be written by the
+owner of the file.</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">kpath&nbsp;&nbsp; </span><span style="font-family:&quot;Palatino Linotype&quot;,&quot;serif&quot;">Specifies
+the absolute path to the certificate’s <b>x509</b> private key file to use for <b>TLS</b>.
+The key must be in <b>PEM</b> format. The file may only be read and written by
+the owner of the file.&nbsp; If <i>kpath</i> is not specified then the certificate
+file must contain the key.</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic"><span style="font-style:normal">[<b>no</b>]<b>detail</b></span></span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="StylePalatinoItalic"><span style="font-style:normal">When <b>detail</b> is specified, detailed <b>TLS</b>
+trace back messages are printed along with explanatory messages. The <b>nodetail</b>
+option suppresses the <b>TLS</b> trace back messages. The default is <b>nodetail</b>.
+See the notes why this is so.</span></span></p>
+
+<p class="MsoNormal"><span class="StylePalatinoItalic"><span style="font-style:
+normal">&nbsp;</span></span></p>
+
+<p class="MsoNormal" style="margin-left:.5in;text-indent:-.5in"><span class="StylePalatinoItalic">to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:&quot;Palatino Linotype&quot;,&quot;serif&quot;">Specifies
+the maximum amount of time a <b>TLS</b> handshake is allowed to take before the
+connection is closed. The <i>to</i> value may be suffixed by <b>h</b> for
+hours, <b>m</b> for minutes, or <b>s</b> for seconds, respectively; otherwise,
+the <i>to</i> value defaults to seconds. There is no default time limit for the
+<b>TLS</b> handshake. </span></p>
+
+<p class="StyleBodyTextIndent2Bold" style="margin-left:0in">&nbsp;</p>
+
+<p class="StyleBodyTextIndent2Bold" style="margin-left:0in">Defaults</p>
+
+<p class="MsoBodyTextIndent2"><b>TLS</b> is not configured and cannot be used.
+See individual options for the defaults should you configure <b>TLS</b>.</p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:0in"><b>&nbsp;</b></p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:0in"><b>Notes</b></p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:.75in;text-indent:-.25in">1)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Normally,
+a host certificate should be used because the client can use it to validate
+that it connected to the intended host. </p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:.75in;text-indent:-.25in">2)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>If
+you specify the <b>tls</b> directive then you must specify the <b>tlsca</b>
+directive as well.</p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:.75in;text-indent:-.25in">3)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Most
+<b>TLS</b> trace back messages do not provide any more information than the
+companion explanatory messages and, as such, is only useful for debugging
+purposes. This is why <b>nodetail</b> is the default. However, if you enable <b>TLS</b>
+tracing using the<b> xrd.trace</b> directive, <b>detail</b> is enabled
+regardless of what is specified.</p>
+
+<p class="MsoBodyTextIndent2" style="margin-left:0in">&nbsp;</p>
+
+<p class="StyleBodyTextIndent2Bold" style="margin-left:0in">Example</p>
+
+<p class="MsoBodyTextIndent2"><b><span style="font-family:&quot;Courier New&quot;">xrd.tls
+/etc/security/xrootd/hostcert.pem</span></b></p>
+
+</div>
