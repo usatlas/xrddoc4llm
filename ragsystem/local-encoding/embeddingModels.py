@@ -16,6 +16,7 @@ class HFEmbeddingFunction(EmbeddingFunction[List[str]]):
 qwen3_embedding_4B = HuggingFaceEmbeddings(
     model_name="Qwen/Qwen3-Embedding-4B",
     model_kwargs={"device": "cpu"},
+)
 
 all_MiniLM_L6_v2 = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
