@@ -174,11 +174,11 @@ if __name__ == "__main__":
         uvicorn.run(app,
                     host="0.0.0.0",
                     port=8000,
-                    ssl_certfile="./hostcert.pem",
-                    ssl_keyfile="./hostkey.pem",
+                    #ssl_certfile="./hostcert.pem",
+                    #ssl_keyfile="./hostkey.pem",
                     headers=[("server", "")],
                     timeout_graceful_shutdown=10)
-    # http://localhost:8000/mcp/
+    # https://localhost:8000/mcp/ when ssl_certfile and ssl_keyfile are provided
 
 
 
