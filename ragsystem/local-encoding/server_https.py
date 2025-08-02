@@ -59,7 +59,7 @@ def create_chroma_db(documents, metadatas, name, chroma_dir, hf_embedding=all_Mi
     return db
 
 def find_all_files(root_dir):
-    return [str(path) for path in Path(root_dir).rglob('*.md') if path.is_file()]
+    return [str(path) for path in Path(root_dir).rglob('*') if path.is_file()]
 
 def hash_doc(doc: str, metadata: dict) -> str:
     """
@@ -111,7 +111,7 @@ def start_mcp_server(chroma_dir, documents_dir):
             # Title could be the filename or extracted from the first Markdown heading
             fileTitle = Path(path).stem  # e.g., "xrootd_config" from "xrootd_config.md"
             # Optionally extract from content: e.g., first line that starts with '# '
-            title = None
+            title = ""
             for line in contents.splitlines():
                 if line.strip().startswith("# "):
                     title = line.strip("# ").strip()
@@ -152,13 +152,25 @@ def start_mcp_server(chroma_dir, documents_dir):
         passage = get_relevant_passage(query, db, results=results)
         return passage if passage else "No relevant passage found."
 
+    @server.tool()
+    def retrieve_document_file(file: str) -> str:
+	'''
+	Tool to retrieve the full content of a document file by its file name.
+	'''
+	print(f"Received request for file: {file}, for tool: retrieve_document_file")
+	for path in paths:
+            if file in path:
+		with open(path, 'r') as f:
+		    return f.read()
+	return f"No document found with file name: {file}"
+	
     return server
 
 
 
 if __name__ == "__main__":
     chroma_dir = os.path.dirname(__file__) + "/chroma_db"
-    documents_dir = os.path.dirname(os.path.dirname(__file__)) + "/documents" # Adjusted to point to the parent directory's documents folder
+    documents_dir = os.path.dirname(__file__) + "/documents" # Adjusted to point to the parent directory's documents folder
 
     server = start_mcp_server(chroma_dir, documents_dir)
 
