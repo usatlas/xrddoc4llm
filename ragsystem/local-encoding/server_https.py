@@ -154,15 +154,15 @@ def start_mcp_server(chroma_dir, documents_dir):
 
     @server.tool()
     def retrieve_document_file(file: str) -> str:
-	'''
-	Tool to retrieve the full content of a document file by its file name.
-	'''
-	print(f"Received request for file: {file}, for tool: retrieve_document_file")
-	for path in paths:
+        '''
+        Tool to retrieve the full content of a document file by its file name.
+        '''
+        print(f"Received request for file: {file}, for tool: retrieve_document_file")
+        for path in paths:
             if file in path:
-		with open(path, 'r') as f:
-		    return f.read()
-	return f"No document found with file name: {file}"
+                with open(path, 'r') as f:
+                    return f.read()
+        return f"No document found with file name: {file}"
 	
     return server
 
