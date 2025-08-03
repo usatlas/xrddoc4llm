@@ -144,9 +144,10 @@ def start_mcp_server(chroma_dir, documents_dir):
     server = FastMCP()
 
     @server.tool()
-    def get_relevant_passage_tool(query: str, results: int = 1) -> str:
+    def get_relevant_passage_tool(query: str, results: int = 4) -> str:
         '''
-        Tool to retrieve relevant passage from the database on Xrootd. Change results to get more than one passage. 
+        Tool to retrieve relevant passage from the Xrootd documents based on {query}.
+        Change results to get more than one passage. 
         '''
         print(f"Received query: {query}, for tool: get_relevant_passage_tool")
         passage = get_relevant_passage(query, db, results=results)
@@ -155,7 +156,7 @@ def start_mcp_server(chroma_dir, documents_dir):
     @server.tool()
     def retrieve_document_file(file: str) -> str:
         '''
-        Tool to retrieve the full content of a document file by its file name.
+        Tool to retrieve the full content of {file}.
         '''
         print(f"Received request for file: {file}, for tool: retrieve_document_file")
         for path in paths:
